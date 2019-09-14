@@ -37,18 +37,17 @@ class TestDb(unittest.TestCase):
         """Create the testing database
         """
         create_database('config.cfg', schema='testleadmachine')
-        conn = BaseCrawler().conn
-        create_tables(conn)
+        self.conn = BaseCrawler().conn
 
     def tearDown(self):
         """Delete the testing database
         """
-        delete_database('config.cfg', schema='testleadmachine')
-        conn = BaseCrawler().conn
-        drop_tables(conn)
+        delete_database(self.conn, schema='testleadmachine')
+        drop_tables(self.conn)
+        self.conn.close()
 
     def test_create_tables(self):
-        pass
+        create_tables(self.conn)
 
     def test_insert_data(self):
         pass
