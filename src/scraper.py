@@ -27,6 +27,7 @@ class BaseCrawler:
     """
     def __init__(self, source=None, conn_info=None):
         self.conn = self.make_connection(conn_info)
+        self.conn.set_session(autocommit=True)
 
     def make_connection(self, conn_info, db='POSTGRES'):
         """Returns a connection to database
