@@ -25,5 +25,29 @@ class TestScraper(unittest.TestCase):
         except KeyError:
             self.assertTrue(True)
 
+class TestDb(unittest.TestCase):
+    """Database tests
+
+    """
+    def setUp(self):
+        """Create the testing database
+        """
+        pass
+
+    def tearDown(self):
+        """Delete the testing database
+        """
+        pass
+
+    def test_create_tables(self):
+        pass
+
+    def test_insert_data(self):
+        pass
+
+    def test_insert_duplicate_data(self):
+        pass
+
+
 if __name__ == '__main__':
     unittest.main()
