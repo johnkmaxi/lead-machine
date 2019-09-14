@@ -5,6 +5,10 @@
 import unittest
 
 from scraper import BaseCrawler
+from create_tables import create_database
+from create_tables import delete_database
+from create_tables import create_tables
+from create_tables import drop_tables
 
 class TestScraper(unittest.TestCase):
     """
@@ -32,12 +36,16 @@ class TestDb(unittest.TestCase):
     def setUp(self):
         """Create the testing database
         """
-        pass
+        create_database('config.cfg', schema='testleadmachine')
+        conn = BaseCrawler().conn
+        create_tables(conn)
 
     def tearDown(self):
         """Delete the testing database
         """
-        pass
+        delete_database('config.cfg', schema='testleadmachine')
+        conn = BaseCrawler().conn
+        drop_tables(conn)
 
     def test_create_tables(self):
         pass
@@ -47,7 +55,6 @@ class TestDb(unittest.TestCase):
 
     def test_insert_duplicate_data(self):
         pass
-
 
 if __name__ == '__main__':
     unittest.main()
