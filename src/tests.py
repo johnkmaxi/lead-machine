@@ -33,18 +33,20 @@ class TestDb(unittest.TestCase):
     """Database tests
 
     """
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         """Create the testing database
         """
         create_database('config.cfg', schema='testleadmachine')
-        self.conn = BaseCrawler().conn
+        cls.conn = BaseCrawler().conn
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(cls):
         """Delete the testing database
         """
-        delete_database(self.conn, schema='testleadmachine')
-        drop_tables(self.conn)
-        self.conn.close()
+        delete_database(cls.conn, schema='testleadmachine')
+        drop_tables(cls.conn)
+        cls.conn.close()
 
     def test_create_tables(self):
         create_tables(self.conn)
@@ -54,9 +56,9 @@ class TestDb(unittest.TestCase):
         # results is an empty list
         self.assertEqual(0, len(results))
 
-    # def test_insert_data(self):
-    #     pass
-    #
+    def test_insert_data(self):
+        pass
+
     # def test_insert_duplicate_data(self):
     #     pass
 
