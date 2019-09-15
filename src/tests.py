@@ -48,12 +48,17 @@ class TestDb(unittest.TestCase):
 
     def test_create_tables(self):
         create_tables(self.conn)
+        cur = self.conn.cursor()
+        cur.execute('select * from leads')
+        results = cur.fetchall()
+        # results is an empty list
+        self.assertEqual(0, len(results))
 
-    def test_insert_data(self):
-        pass
-
-    def test_insert_duplicate_data(self):
-        pass
+    # def test_insert_data(self):
+    #     pass
+    #
+    # def test_insert_duplicate_data(self):
+    #     pass
 
 if __name__ == '__main__':
     unittest.main()
