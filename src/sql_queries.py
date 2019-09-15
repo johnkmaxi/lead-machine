@@ -20,7 +20,8 @@ columns = {
     HALF_BATHS int,
     AGE_DESC varchar,
     YR_BLT int,
-    SQ_FEET_LV int
+    SQ_FEET_LV int,
+    PRIMARY KEY (APPEARED_DATE, ADDRESS)
     )"""
 }
 

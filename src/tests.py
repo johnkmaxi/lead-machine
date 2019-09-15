@@ -65,14 +65,16 @@ class TestDb(unittest.TestCase):
         self.assertEqual(0, len(results))
 
     def test_insert_data(self):
-        self.cur = self.conn.cursor()
         self.cur.execute(leads_insert, [datetime.datetime(2019,1,1),'varchar',1,'varchar',1,1,1,1,'varchar',1,1])
         self.cur.execute('select * from leads')
         results = self.cur.fetchall()
         self.assertEqual(1, len(results))
 
-    # def test_insert_duplicate_data(self):
-    #     pass
+    def test_insert_duplicate_data(self):
+        self.cur.execute(leads_insert, [datetime.datetime(2019,1,1),'varchar',1,'varchar',1,1,1,1,'varchar',1,1])
+        self.cur.execute('select * from leads')
+        results = self.cur.fetchall()
+        self.assertEqual(1, len(results))
 
 if __name__ == '__main__':
     unittest.main()
