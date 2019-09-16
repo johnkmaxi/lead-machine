@@ -18,6 +18,22 @@ class TestScraper(unittest.TestCase):
 
     """
 
+    @classmethod
+    def setUpClass(cls):
+        """Create the testing database
+        """
+        create_database('config.cfg', schema='testleadmachine')
+        cls.test_crawler = BaseCrawler()
+        create_tables(cls.test_crawler.conn)
+
+    @classmethod
+    def tearDownClass(cls):
+        """Delete the testing database
+        """
+        delete_database(cls.test_crawler.conn, schema='testleadmachine')
+        drop_tables(cls.test_crawler.conn)
+        cls.test_crawler.conn.close()
+
     def test_no_config(self):
         base_crawler = BaseCrawler()
         self.assertTrue(True)
@@ -31,6 +47,12 @@ class TestScraper(unittest.TestCase):
             base_crawler = BaseCrawler(conn_info='notmyconfig.cfg')
         except KeyError:
             self.assertTrue(True)
+
+    def test_base_crawler_to_db(self):
+        self.test_crawler.to_db(leads_insert, params=[datetime.datetime(2019,1,1),'varchar',1,'varchar',1,1,1,1,'varchar',1,1])
+        cur = self.test_crawler.to_db('select * from leads')
+        results = cur.fetchall()
+        self.assertEqual(1, len(results))
 
 class TestDb(unittest.TestCase):
     """Database tests

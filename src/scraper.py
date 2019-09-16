@@ -55,10 +55,13 @@ class BaseCrawler:
             conn = psycopg2.connect(f"host={host} dbname={dbname} user={username} password={password}")
         return conn
 
-    def to_db(self, query):
+    def to_db(self, query, params=None):
         """Writes a query to a database
 
         Parameters
         ----------
         query : str
         """
+        cur = self.conn.cursor()
+        cur.execute(query, params)
+        return cur
