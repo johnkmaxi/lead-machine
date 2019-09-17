@@ -6,6 +6,7 @@ import unittest
 
 import datetime
 
+from db import BaseDb
 from scraper import BaseCrawler
 from scraper import MlsCrawler
 from create_tables import create_database
@@ -15,7 +16,7 @@ from create_tables import drop_tables
 from sources import my_searches
 from sql_queries import leads_insert
 
-# class TestScraper(unittest.TestCase):
+# class TestDb(unittest.TestCase):
 #     """
 #
 #     """
@@ -25,7 +26,7 @@ from sql_queries import leads_insert
 #         """Create the testing database
 #         """
 #         create_database('config.cfg', schema='testleadmachine')
-#         cls.test_crawler = BaseCrawler()
+#         cls.test_crawler = BaseDb()
 #         create_tables(cls.test_crawler.conn)
 #
 #     @classmethod
@@ -37,16 +38,16 @@ from sql_queries import leads_insert
 #         cls.test_crawler.conn.close()
 #
 #     def test_no_config(self):
-#         base_crawler = BaseCrawler()
+#         base_crawler = BaseDb()
 #         self.assertTrue(True)
 #
 #     def test_config(self):
-#         base_crawler = BaseCrawler(conn_info='config.cfg')
+#         base_crawler = BaseDb(conn_info='config.cfg')
 #         self.assertTrue(True)
 #
 #     def test_config_fail(self):
 #         try:
-#             base_crawler = BaseCrawler(conn_info='notmyconfig.cfg')
+#             base_crawler = BaseDb(conn_info='notmyconfig.cfg')
 #         except KeyError:
 #             self.assertTrue(True)
 #
@@ -65,7 +66,7 @@ from sql_queries import leads_insert
 #         """Create the testing database
 #         """
 #         create_database('config.cfg', schema='testleadmachine')
-#         cls.conn = BaseCrawler().conn
+#         cls.conn = BaseDb().conn
 #
 #     @classmethod
 #     def tearDownClass(cls):

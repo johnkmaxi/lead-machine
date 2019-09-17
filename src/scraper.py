@@ -15,12 +15,10 @@ class BaseCrawler:
     ----------
     source : str
         A URL indicating the where the crawler should begin data collection
-    conn_info : str
-        A filepath to a config file with database connection information
 
     Attributes
     ----------
-    conn : psycopg2 connection object
+
 
     Methods
     -------
@@ -29,45 +27,22 @@ class BaseCrawler:
 
     """
     def __init__(self, source=None, conn_info=None):
-        self.conn = self.make_connection(conn_info)
-        self.conn.set_session(autocommit=True)
+        pass
 
-    def make_connection(self, conn_info, db='POSTGRES'):
-        """Returns a connection to database
+    @staticmethod
+    def click(url):
+        """Opens the passed URL
 
         Parameters
         ----------
-        conn_info : str
-            A filepath to a config file with database connection information
+        url : str
+            A URL link to open
 
         Returns
         -------
-        conn : psycopg2 connection object
+        response : HTTPResponse object
         """
-        if conn_info is None: # use default db on local host
-            conn = psycopg2.connect("host=localhost dbname=postgres user=postgres password=postgres")
-        else: # parse the config file and connect
-            config = configparser.ConfigParser()
-            config.read(conn_info)
-            host = config[db]['host']
-            #port = int(config[db]['port'])
-            #service_name = config[db]['service_name']
-            dbname = config[db]['dbname']
-            username = config[db]['username']
-            password = config[db]['password']
-            conn = psycopg2.connect(f"host={host} dbname={dbname} user={username} password={password}")
-        return conn
 
-    def to_db(self, query, params=None):
-        """Writes a query to a database
-
-        Parameters
-        ----------
-        query : str
-        """
-        cur = self.conn.cursor()
-        cur.execute(query, params)
-        return cur
 
 class MlsCrawler(BaseCrawler):
     """A crawler for parsing the MLS portal
@@ -76,6 +51,9 @@ class MlsCrawler(BaseCrawler):
     ----------
     source : str
         A URL indicating the where the crawler should begin data collection
+    html_file : str, default None
+        A filename to use as the html source. If used, the source URL is not
+        used.
 
     Attributes
     ----------
@@ -108,6 +86,7 @@ class MlsCrawler(BaseCrawler):
             self.source_html = urlopen(self.source)
         self.source_soup = BeautifulSoup(self.source_html)
         self.searches = self.collect_search_list()
+
 
     def collect_search_list(self):
         """Returns a list of links containing search results
