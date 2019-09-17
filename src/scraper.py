@@ -99,9 +99,13 @@ class MlsCrawler(BaseCrawler):
 
 
     """
-    def __init__(self, source):
+    def __init__(self, source, html_file=None):
         self.source = source
-        self.source_html = urlopen(self.source)
+        if html_file:
+            with open(html_file, mode='r', encoding='utf8') as page:
+                self.source_html = page.read()
+        else:
+            self.source_html = urlopen(self.source)
         self.source_soup = BeautifulSoup(self.source_html)
         self.searches = self.collect_search_list()
 

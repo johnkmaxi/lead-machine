@@ -109,11 +109,25 @@ class TestMlsScraper(unittest.TestCase):
     def setUpClass(cls):
         """Create the testing database
         """
-        cls.crawler = MlsCrawler(my_searches)
+        cls.crawler = MlsCrawler(my_searches, html_file='mls_source_html_test.html')
 
+    def test_read_from_file(self):
+        self.assertIs(type(self.crawler.source_html), str)
 
-    def test_collect_search_list(self):
+    def test_collect_search_list_len(self):
         self.assertEqual(9, len(self.crawler.searches))
+
+    def test_collect_search_list_names(self):
+        link_text = [x.text.strip() for x in self.crawler.searches]
+        self.assertTrue("Single family: FQ & Iberville" in link_text)
+        self.assertTrue("Multi-family: 7& 9th wards, Marigny/Bywater" in link_text)
+        self.assertTrue("Single family: 7th & 9th wards, Marigy/Bywater" in link_text)
+        self.assertTrue("Multi-family: 70114, 70131" in link_text)
+        self.assertTrue("Single family: 70114, 70131" in link_text)
+        self.assertTrue("Multi-family: 70119, 70122, 70124" in link_text)
+        self.assertTrue("Single family: 70119, 70122, 70124" in link_text)
+        self.assertTrue("Multi-family: 70118 70125 70113 70130 70115" in link_text)
+        self.assertTrue("Single family: 70118 70125 70113 70130 70115" in link_text)
 
 if __name__ == '__main__':
     unittest.main()
