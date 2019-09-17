@@ -3,6 +3,9 @@
 """
 
 import configparser
+from urllib.request import urlopen
+
+from bs4 import BeautifulSoup
 import psycopg2
 
 class BaseCrawler:
@@ -65,3 +68,45 @@ class BaseCrawler:
         cur = self.conn.cursor()
         cur.execute(query, params)
         return cur
+
+class MlsCrawler(BaseCrawler):
+    """A crawler for parsing the MLS portal
+
+    Parameters
+    ----------
+    source : str
+        A URL indicating the where the crawler should begin data collection
+
+    Attributes
+    ----------
+    searches : list
+        The links to individual searches available from the My Searches page
+
+    Methods
+    -------
+    collect_search_list(), collects the links on the my searches page
+    click(url), follows the passed URL link
+    nav_single_line_view(), navigates to the single line client view
+    home(), returns to the `source` URL
+    collect(), parses HTML table of listings
+    http_error_handling(), build in seperate function or within each fxn
+    attribute_error_handling(), if an HTML attribute does not exist
+
+
+    """
+    def __init__(self, source):
+        self.source = source
+        self.searches = self.collect_search_list()
+
+    def collect_search_list(self):
+        """Returns a list of links containing search results
+
+        Returns
+        -------
+        searches : list
+
+        """
+        html = urlopen(self.source)
+        soup = BeautifulSoup(html)
+        links = soup.findAll('a', id=lambda x: x and 'ucItemView_m_lnkSubject' in x)
+        return links
