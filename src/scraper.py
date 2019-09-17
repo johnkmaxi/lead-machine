@@ -79,8 +79,13 @@ class MlsCrawler(BaseCrawler):
 
     Attributes
     ----------
+    source_html : HTTPResponse object
+        The html of the source URL
+    source_soup : BeautifulSoup object
+        Parsed HTML of source URL
     searches : list
         The links to individual searches available from the My Searches page
+
 
     Methods
     -------
@@ -96,6 +101,8 @@ class MlsCrawler(BaseCrawler):
     """
     def __init__(self, source):
         self.source = source
+        self.source_html = urlopen(self.source)
+        self.source_soup = BeautifulSoup(self.source_html)
         self.searches = self.collect_search_list()
 
     def collect_search_list(self):
@@ -106,7 +113,5 @@ class MlsCrawler(BaseCrawler):
         searches : list
 
         """
-        html = urlopen(self.source)
-        soup = BeautifulSoup(html)
-        links = soup.findAll('a', id=lambda x: x and 'ucItemView_m_lnkSubject' in x)
+        links = self.source_soup.findAll('a', id=lambda x: x and 'ucItemView_m_lnkSubject' in x)
         return links

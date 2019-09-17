@@ -105,9 +105,15 @@ class TestMlsScraper(unittest.TestCase):
 
     """
 
+    @classmethod
+    def setUpClass(cls):
+        """Create the testing database
+        """
+        cls.crawler = MlsCrawler(my_searches)
+
+
     def test_collect_search_list(self):
-        crawler = MlsCrawler(my_searches)
-        self.assertEqual(9, len(crawler.searches))
+        self.assertEqual(9, len(self.crawler.searches))
 
 if __name__ == '__main__':
     unittest.main()
