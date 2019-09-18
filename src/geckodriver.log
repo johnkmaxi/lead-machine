@@ -20,3 +20,81 @@ d] WARNING: pipe error: 109: file z:/task_1566864336/build/src/ipc/chromium/src/
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1568819724434	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.ijLOMUixu0LV"
+1568819724915	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1568819724916	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1568819724916	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1568819724917	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1568819726721	Marionette	INFO	Listening on port 59813
+1568819727123	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+1568819735646	Marionette	INFO	Stopped listening on port 59813
+[Parent 59652, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1566864336/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 63368, Chrome_C[hilParednTth 5965r2e, Geckao_IOdT]h rWeAadRNI]NG :WA RNINGp: pipe erroirpe : 1e09: filer rz:/taoskr:_1 256368643362/b:ui lfdi/slrec/ izpc/chromium/src/c:/throme/caommon/ipc_channel_win.sckc, lin_e15 341
+66864336/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 502
+[
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

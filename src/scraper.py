@@ -180,6 +180,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
         # javascript for showing Single Line view
         # TODO: find the javascript function by locating the Client Single Line within the fxn
         browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
+        time.sleep(5)
         soup = BeautifulSoup(browser.page_source)
         browser.close()
         return soup
@@ -189,3 +190,9 @@ class MlsCrawler(BaseCrawler, BaseDb):
 
         """
         pass
+
+    def save_html(self, soup, fname='html.html'):
+        """
+        """
+        with open(fname, mode='w', encoding='utf') as p:
+            p.write(str(soup.prettify())
