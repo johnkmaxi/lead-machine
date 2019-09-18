@@ -4,6 +4,7 @@
 
 import unittest
 
+import bs4
 import datetime
 
 from db import BaseDb
@@ -129,6 +130,16 @@ class TestMlsScraper(unittest.TestCase):
         self.assertTrue("Single family: 70119, 70122, 70124" in link_text)
         self.assertTrue("Multi-family: 70118 70125 70113 70130 70115" in link_text)
         self.assertTrue("Single family: 70118 70125 70113 70130 70115" in link_text)
+
+    def test_link_type(self):
+        # print(type(self.crawler.searches[0]))
+        # print(self.crawler.searches[0])
+        # print(self.crawler.searches[0].attrs["href"])
+        pass
+
+    def test_single_line_view(self):
+        soup = self.crawler.single_line_view(self.crawler.searches[0])
+        self.assertIs(type(soup), bs4.BeautifulSoup)
 
 if __name__ == '__main__':
     unittest.main()
