@@ -53,10 +53,15 @@ class BaseCrawler:
 
     @staticmethod
     def xpath_soup(element):
-        """
-        Generate xpath of soup element
-        :param element: bs4 text or node
-        :return: xpath as string
+        """Generate xpath of soup element
+
+        Parameters
+        ----------
+        element : bs4 text or node
+
+        Returns
+        -------
+        xpath as string
         """
         components = []
         child = element if element.name else element.parent
@@ -90,6 +95,9 @@ class MlsCrawler(BaseCrawler, BaseDb):
 
     Attributes
     ----------
+    source :
+    driver_path :
+    options :
     source_html : HTTPResponse object
         The html of the source URL
     source_soup : BeautifulSoup object
@@ -119,7 +127,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
         self.source = source
         self.driver_path = driver_path
         self.options = Options()
-        self.options.headless = True
+        # self.options.headless = True
         if html_file:
             with open(html_file, mode='r', encoding='utf8') as page:
                 self.source_html = page.read()
@@ -127,7 +135,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
             # TODO: add exception handling for HTTPResponse errors
             self.source_html = urlopen(self.source)
         self.source_soup = BeautifulSoup(self.source_html, features='lxml')
-        self.searches = self.collect_search_list()
+        # self.searches = self.collect_search_list()
         super(MlsCrawler, self).__init__()
         self.conn = self.make_connection(None)
 
@@ -175,8 +183,8 @@ class MlsCrawler(BaseCrawler, BaseDb):
         """
         browser = webdriver.Firefox(options=self.options, executable_path=self.driver_path)
         browser.get(self.source)
-        tag_xpath = self.xpath_soup(tag)
-        browser.find_element_by_xpath(tag_xpath).click()
+        # tag_xpath = self.xpath_soup(tag)
+        # browser.find_element_by_xpath(tag_xpath).click()
         # TODO: Use selenium wait methods to handle this without requiring time.sleep for headless
         #time.sleep(5)
         # javascript for showing Single Line view
@@ -184,6 +192,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
         browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
         time.sleep(5)
         soup = BeautifulSoup(browser.page_source, features='lxml')
+        time.sleep(3)
         browser.close()
         return soup
 
@@ -219,7 +228,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
         sent = [self.format_date(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m6"})]
         change_type = [x.span.contents[0].rstrip().lstrip() for x in soup.findAll('td', {'class':"d5m7"})]
         mls_num = [int(x.a.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m8"})]
-        status = [x.span.contents for x in soup.findAll('td', {'class':"d5m9"})][0]
+        # status = [x.span.contents for x in soup.findAll('td', {'class':"d5m9"})][0]
         address = [x.span.contents[0].rstrip().lstrip() for x in soup.findAll('td', {'class':"d5m10"})]
         price = [self.format_money(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m11"})]
         beds = [int(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m13"})]
@@ -227,7 +236,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
         halfbath = [int(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m15"})]
         age_desc = [x.span.contents[0].rstrip().lstrip() for x in soup.findAll('td', {'class':"d5m17"})]
         sq_ft_lv = [self.format_sqft(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m18"})]
-        year_built = [self.format_year(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m19"})]
+        year_built = [self.format_year(x.span.contents) for x in soup.findAll('td', {'class':"d5m19"})]
         data = {
             'sent': sent,
             'changetype': change_type,
@@ -259,10 +268,16 @@ class MlsCrawler(BaseCrawler, BaseDb):
         return int(sqft_str.replace(',',''))
 
     @staticmethod
-    def format_year(year_str):
-        """Return an int of the year_str"""
-        if len(year_str) > 0:
-            return int(year_str)
+    def format_year(year_list):
+        """Return an int of the year_str
+
+        Year built values can return an empty list when scraping the MLS search.
+        Only apply formatting if a value is present.
+        """
+        if len(year_list) == 1:
+            year_str = year_list[0]
+            if len(year_str) > 0:
+                return int(year_str)
         else:
             return None
 
