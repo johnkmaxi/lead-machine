@@ -33,14 +33,16 @@ def create_database(conn_info, db='POSTGRES', schema=None):
     # create sparkify database with UTF8 encoding
     cur.execute(f"DROP DATABASE IF EXISTS {schema}")
     cur.execute(f"CREATE DATABASE {schema} WITH ENCODING 'utf8' TEMPLATE template0")
+    cur.close()
+    conn.close()
 
 def delete_database(conn, schema=None):
     """Deletes the lead-machine database
 
     Parameters
     ----------
-    conn_info : str
-        File path to config file with database connection info
+    conn : psycopg2 connection object
+
     db : str
         Header in configfile. Name of database to get parameters for. E.g.,
         POSTRES, ORACLE
@@ -55,11 +57,13 @@ def delete_database(conn, schema=None):
 
     # delete lead machine database with UTF8 encoding
     cur.execute(f"DROP DATABASE IF EXISTS {schema}")
+    cur.close()
+    conn.commit()
 
 def drop_tables(conn): #, drop_table_queries
     drop_query = """DROP TABLE IF EXISTS {};"""
     for table in tables:
-        #print(drop_query.format(table))
+        # print(drop_query.format(table))
         conn.cursor().execute(drop_query.format(table))
         conn.commit()
 
