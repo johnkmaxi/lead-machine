@@ -550,7 +550,8 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
-1568810256217	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.aCzsdGQgdUn2"
+Exiting due to channel error.
+	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.aCzsdGQgdUn2"
 *** You are running in headless mode.
 1568810256728	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
 1568810256729	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
@@ -559,7 +560,9 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
 1568810258251	Marionette	INFO	Listening on port 59037
 1568810258283	Marionette	WARN	TLS certificate errors will be ignored for this session
-1568811530515	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.Sb4e4sfg9a5m"
+Exiting due to channel error.
+Exiting due to channel error.
+gram Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.Sb4e4sfg9a5m"
 1568811531023	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
 1568811531037	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
 1568811531037	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
@@ -1240,7 +1243,8 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "drawing_impl".
-1569033151047	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.lISUNfKsDomj"
+Exiting due to channel error.
+	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.lISUNfKsDomj"
 *** You are running in headless mode.
 1569033151548	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
 1569033151548	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
