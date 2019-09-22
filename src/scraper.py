@@ -126,8 +126,9 @@ class MlsCrawler(BaseCrawler, BaseDb):
     ):
         self.source = source
         self.driver_path = driver_path
+        self.date = datetime.now().date()
         self.options = Options()
-        # self.options.headless = True
+        self.options.headless = True
         if html_file:
             with open(html_file, mode='r', encoding='utf8') as page:
                 self.source_html = page.read()
@@ -151,15 +152,11 @@ class MlsCrawler(BaseCrawler, BaseDb):
         links = self.source_soup.findAll('a', id=lambda x: x and 'ucItemView_m_lnkSubject' in x)
         return links
 
-    def single_line_view(self, tag):
+    def single_line_view(self):
         """Changes the page view to Single Line
 
         Single Line view is created by a JavaScript-type link. Use selenium to
         process the link.
-
-        Parameters
-        ----------
-        tag : bs4.element.Tag
 
         Return
         ------
@@ -190,9 +187,14 @@ class MlsCrawler(BaseCrawler, BaseDb):
         # javascript for showing Single Line view
         # TODO: find the javascript function by locating the Client Single Line within the fxn
         browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
-        time.sleep(5)
+        time.sleep(7)
+        try:
+            browser.execute_script("PortalResultsJs.getNextDisplaySet();")
+            time.sleep(7)
+        except:
+            pass
         soup = BeautifulSoup(browser.page_source, features='lxml')
-        time.sleep(3)
+        time.sleep(7)
         browser.close()
         return soup
 
@@ -231,12 +233,12 @@ class MlsCrawler(BaseCrawler, BaseDb):
         # status = [x.span.contents for x in soup.findAll('td', {'class':"d5m9"})][0]
         address = [x.span.contents[0].rstrip().lstrip() for x in soup.findAll('td', {'class':"d5m10"})]
         price = [self.format_money(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m11"})]
-        beds = [int(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m13"})]
-        fullbath = [int(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m14"})]
-        halfbath = [int(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m15"})]
+        beds = [self.format_result_list(x.span.contents) for x in soup.findAll('td', {'class':"d5m13"})]
+        fullbath = [self.format_result_list(x.span.contents) for x in soup.findAll('td', {'class':"d5m14"})]
+        halfbath = [self.format_result_list(x.span.contents) for x in soup.findAll('td', {'class':"d5m15"})]
         age_desc = [x.span.contents[0].rstrip().lstrip() for x in soup.findAll('td', {'class':"d5m17"})]
         sq_ft_lv = [self.format_sqft(x.span.contents[0].rstrip().lstrip()) for x in soup.findAll('td', {'class':"d5m18"})]
-        year_built = [self.format_year(x.span.contents) for x in soup.findAll('td', {'class':"d5m19"})]
+        year_built = [self.format_result_list(x.span.contents) for x in soup.findAll('td', {'class':"d5m19"})]
         data = {
             'sent': sent,
             'changetype': change_type,
@@ -268,21 +270,30 @@ class MlsCrawler(BaseCrawler, BaseDb):
         return int(sqft_str.replace(',',''))
 
     @staticmethod
-    def format_year(year_list):
-        """Return an int of the year_str
+    def format_result_list(result_list):
+        """Return an int the passed ['str']
 
-        Year built values can return an empty list when scraping the MLS search.
-        Only apply formatting if a value is present.
+        Some values in the table can be empty.
+
+        Parameters
+        ----------
+        result_list : list of str
+            Should have either 1 or 0 items in the list
+
+        Returns
+        -------
+        int
         """
-        if len(year_list) == 1:
-            year_str = year_list[0]
-            if len(year_str) > 0:
-                return int(year_str)
+        if len(result_list) == 1:
+            result_str = result_list[0]
+            if len(result_str) > 0:
+                #print(result_list, result_str.rstrip().lstrip())
+                return int(result_str.rstrip().lstrip())
         else:
             return None
 
     def scrape_table_header(self, soup):
-        """
+        """Get the table headers of the single line view
 
         """
         columns = []

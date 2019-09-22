@@ -2,8 +2,8 @@ import configparser
 import psycopg2
 from sql_queries import tables, columns
 
-def create_database(conn_info, db='POSTGRES', schema=None):
-    """Deletes the lead-machine database
+def create_connection(conn_info, db='POSTGRES'):
+    """Create a connection to leadmachine
 
     Parameters
     ----------
@@ -12,8 +12,10 @@ def create_database(conn_info, db='POSTGRES', schema=None):
     db : str
         Header in configfile. Name of database to get parameters for. E.g.,
         POSTRES, ORACLE
-    schema : None, optional
-        Defaults to 'leadmachine'.
+
+    Returns
+    -------
+    conn : database connection
     """
     # connect to default database
     config = configparser.ConfigParser()
@@ -26,6 +28,16 @@ def create_database(conn_info, db='POSTGRES', schema=None):
     password = config[db]['password']
     conn = psycopg2.connect(f"host={host} dbname={dbname} user={username} password={password}")
     conn.set_session(autocommit=True)
+    return conn
+
+def create_database(conn, schema=None):
+    """Deletes and recreates leadmachine database
+
+    Parameters
+    ----------
+    schema : None, optional
+        Defaults to 'leadmachine'.
+    """
     cur = conn.cursor()
     if schema is None:
         schema = 'leadmachine'
@@ -34,7 +46,6 @@ def create_database(conn_info, db='POSTGRES', schema=None):
     cur.execute(f"DROP DATABASE IF EXISTS {schema}")
     cur.execute(f"CREATE DATABASE {schema} WITH ENCODING 'utf8' TEMPLATE template0")
     cur.close()
-    conn.close()
 
 def delete_database(conn, schema=None):
     """Deletes the lead-machine database
@@ -76,13 +87,11 @@ def create_tables(conn): #, create_table_queries, columns
         conn.commit()
 
 def main():
-    # cur, conn = create_database()
-    #
-    # drop_tables(cur, conn)
-    # create_tables(cur, conn)
-    #
-    # conn.close()
-    pass
+    conn = create_connection('config.cfg')
+    drop_tables(conn)
+    delete_database(conn)
+    create_database(conn, schema='leadmachine')
+    create_tables(conn)
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ tables = ['LEADS']
 columns = {
 'LEADS':"""(
     ID SERIAL NOT NULL,
+    SCRAPE_DATE timestamp,
     APPEARED_DATE timestamp,
     CHANGE_TYPE varchar,
     MSL_NUM int,
@@ -26,7 +27,7 @@ columns = {
 }
 
 leads_insert = ("""
-INSERT INTO LEADS(APPEARED_DATE, CHANGE_TYPE, MSL_NUM, ADDRESS, CURRENT_PRICE, BEDS, FULL_BATHS, HALF_BATHS, AGE_DESC, YR_BLT, SQ_FEET_LV)
-            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+INSERT INTO LEADS(SCRAPE_DATE, APPEARED_DATE, CHANGE_TYPE, MSL_NUM, ADDRESS, CURRENT_PRICE, BEDS, FULL_BATHS, HALF_BATHS, AGE_DESC, YR_BLT, SQ_FEET_LV)
+            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 ON CONFLICT DO NOTHING
 """)
