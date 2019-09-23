@@ -66,7 +66,7 @@ class TestDb(unittest.TestCase):
             self.assertTrue(True)
 
     def test_base_crawler_to_db(self):
-        self.test_crawler.to_db(leads_insert, params=[datetime.datetime(2019,1,1),'varchar',1,'varchar',1,1,1,1,'varchar',1,1])
+        self.test_crawler.to_db(leads_insert, params=[datetime.datetime(2019,1,1),datetime.datetime(2019,1,1),'varchar',1,'varchar',1,1,1,1,'varchar',1,1])
         cur = self.test_crawler.to_db('select * from leads')
         results = cur.fetchall()
         self.assertEqual(1, len(results))
@@ -200,7 +200,8 @@ class TestMlsScraperFQ(unittest.TestCase):
         data = self.crawler.scrape_table_columns(self.soup)
         cur = self.crawler.to_db(
             leads_insert,
-            params=(data['sent'][0],
+            params=(crawler.date,
+                    data['sent'][0],
                     data['changetype'][0],
                     data['mlsnum'][0],
                     data['address'][0],
@@ -260,7 +261,8 @@ class TestMlsScraperSfMb(unittest.TestCase):
         data = self.crawler.scrape_table_columns(self.soup)
         cur = self.crawler.to_db(
             leads_insert,
-            params=(data['sent'][0],
+            params=(crawler.date,
+                    data['sent'][0],
                     data['changetype'][0],
                     data['mlsnum'][0],
                     data['address'][0],
@@ -320,7 +322,8 @@ class TestMlsScraperMfMb(unittest.TestCase):
         data = self.crawler.scrape_table_columns(self.soup)
         cur = self.crawler.to_db(
             leads_insert,
-            params=(data['sent'][0],
+            params=(crawler.date,
+                    data['sent'][0],
                     data['changetype'][0],
                     data['mlsnum'][0],
                     data['address'][0],
@@ -380,7 +383,8 @@ class TestMlsScraperSfLakeview(unittest.TestCase):
         data = self.crawler.scrape_table_columns(self.soup)
         cur = self.crawler.to_db(
             leads_insert,
-            params=(data['sent'][0],
+            params=(crawler.date,
+                    data['sent'][0],
                     data['changetype'][0],
                     data['mlsnum'][0],
                     data['address'][0],
@@ -440,7 +444,8 @@ class TestMlsScraperMfUptown(unittest.TestCase):
         data = self.crawler.scrape_table_columns(self.soup)
         cur = self.crawler.to_db(
             leads_insert,
-            params=(data['sent'][0],
+            params=(crawler.date,
+                    data['sent'][0],
                     data['changetype'][0],
                     data['mlsnum'][0],
                     data['address'][0],
@@ -500,7 +505,8 @@ class TestMlsScraperSfUptown(unittest.TestCase):
         data = self.crawler.scrape_table_columns(self.soup)
         cur = self.crawler.to_db(
             leads_insert,
-            params=(data['sent'][0],
+            params=(crawler.date,
+                    data['sent'][0],
                     data['changetype'][0],
                     data['mlsnum'][0],
                     data['address'][0],

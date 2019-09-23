@@ -5,7 +5,9 @@
 import configparser
 
 config = configparser.ConfigParser()
-config.read(conn_info)
+config.read('config.cfg')
+
+config.keys()
 
 MLS_SEARCHES = config['SOURCES']['MLS_SEARCHES']
 SF_FQ = config['SOURCES']['SF_FQ']

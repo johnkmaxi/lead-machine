@@ -1,6 +1,6 @@
 echo off
 
 CALL  "C:\Users\John Maxi\Anaconda3\Scripts\activate.bat" lema
-python lead-machine/src/main.py
-
+python src/main.py
+cmd \k
 echo on 

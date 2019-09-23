@@ -121,7 +121,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
     def __init__(self,
         source,
         html_file=None,
-        driver_path="C:\\Users\\John Maxi\\Box\\MaxiHoldings\\lead-machine\\geckodriver.exe",
+        driver_path="geckodriver.exe",
         driver_options=None
     ):
         self.source = source
