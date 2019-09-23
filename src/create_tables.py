@@ -71,7 +71,7 @@ def delete_database(conn, schema=None):
     cur.close()
     conn.commit()
 
-def drop_tables(conn): #, drop_table_queries
+def drop_tables(conn, table=None): #, drop_table_queries
     drop_query = """DROP TABLE IF EXISTS {};"""
     for table in tables:
         # print(drop_query.format(table))
@@ -79,7 +79,7 @@ def drop_tables(conn): #, drop_table_queries
         conn.commit()
 
 
-def create_tables(conn): #, create_table_queries, columns
+def create_tables(conn, table=None, columns=None): #, create_table_queries, columns
     create_query = """CREATE TABLE IF NOT EXISTS {} {};"""
     for table in tables:
         #print(create_query.format(table, columns[table]))
@@ -88,10 +88,10 @@ def create_tables(conn): #, create_table_queries, columns
 
 def main():
     conn = create_connection('config.cfg')
-    drop_tables(conn)
+    drop_tables(conn, table=tables)
     delete_database(conn)
     create_database(conn, schema='leadmachine')
-    create_tables(conn)
+    create_tables(conn, table=tables, columns=columns)
 
 
 if __name__ == "__main__":

@@ -5,6 +5,27 @@ Author: John Maxi
 Date: 2019-09-14
 """
 
+testtables = ['TESTLEADS']
+
+testcolumns = {
+'TESTLEADS':"""(
+    ID SERIAL NOT NULL,
+    SCRAPE_DATE timestamp,
+    APPEARED_DATE timestamp,
+    CHANGE_TYPE varchar,
+    MLS_NUM int,
+    ADDRESS varchar,
+    CURRENT_PRICE int,
+    BEDS int,
+    FULL_BATHS int,
+    HALF_BATHS int,
+    AGE_DESC varchar,
+    YR_BLT int,
+    SQ_FEET_LV int,
+    PRIMARY KEY (APPEARED_DATE, ADDRESS)
+    )"""
+}
+
 tables = ['LEADS']
 
 columns = {

@@ -28,6 +28,8 @@ from sources import MF_70118_70125_70113_70130_70115
 from sources import SF_70118_70125_70113_70130_70115
 from sources import SF_FQ
 from sql_queries import leads_insert
+from sql_queries import testtables
+from sql_queries import testcolumns
 
 class TestDb(unittest.TestCase):
     """
@@ -41,13 +43,13 @@ class TestDb(unittest.TestCase):
         conn = create_connection('config.cfg')
         create_database(conn, schema='testleadmachine')
         cls.test_crawler = BaseDb()
-        create_tables(cls.test_crawler.conn)
+        create_tables(cls.test_crawler.conn, tables=testtables, columns=testcolumns)
 
     @classmethod
     def tearDownClass(cls):
         """Delete the testing database
         """
-        drop_tables(cls.test_crawler.conn)
+        drop_tables(cls.test_crawler.conn, tables=testtables)
         delete_database(cls.test_crawler.conn, schema='testleadmachine')
         cls.test_crawler.conn.close()
 
@@ -169,11 +171,11 @@ class TestMlsScraperFQ(unittest.TestCase):
         cls.soup = cls.crawler.single_line_view()
         conn = create_connection('config.cfg')
         create_database(conn, schema='testleadmachine')
-        create_tables(cls.crawler.conn)
+        create_tables(cls.crawler.conn, tables=testtables, columns=testcolumns)
 
     @classmethod
     def tearDownClass(cls):
-        drop_tables(cls.crawler.conn)
+        drop_tables(cls.crawler.conn, tables=testtables)
         delete_database(cls.crawler.conn, schema='testleadmachine')
         cls.crawler.conn.close()
 
@@ -230,11 +232,11 @@ class TestMlsScraperSfMb(unittest.TestCase):
         cls.soup = cls.crawler.single_line_view()
         conn = create_connection('config.cfg')
         create_database(conn, schema='testleadmachine')
-        create_tables(cls.crawler.conn)
+        create_tables(cls.crawler.conn, tables=testtables, columns=testcolumns)
 
     @classmethod
     def tearDownClass(cls):
-        drop_tables(cls.crawler.conn)
+        drop_tables(cls.crawler.conn, tables=testtables)
         delete_database(cls.crawler.conn, schema='testleadmachine')
         cls.crawler.conn.close()
 
@@ -291,11 +293,11 @@ class TestMlsScraperMfMb(unittest.TestCase):
         cls.soup = cls.crawler.single_line_view()
         conn = create_connection('config.cfg')
         create_database(conn, schema='testleadmachine')
-        create_tables(cls.crawler.conn)
+        create_tables(cls.crawler.conn, tables=testtables, columns=testcolumns)
 
     @classmethod
     def tearDownClass(cls):
-        drop_tables(cls.crawler.conn)
+        drop_tables(cls.crawler.conn, tables=testtables)
         delete_database(cls.crawler.conn, schema='testleadmachine')
         cls.crawler.conn.close()
 
@@ -352,11 +354,11 @@ class TestMlsScraperSfLakeview(unittest.TestCase):
         cls.soup = cls.crawler.single_line_view()
         conn = create_connection('config.cfg')
         create_database(conn, schema='testleadmachine')
-        create_tables(cls.crawler.conn)
+        create_tables(cls.crawler.conn, tables=testtables, columns=testcolumns)
 
     @classmethod
     def tearDownClass(cls):
-        drop_tables(cls.crawler.conn)
+        drop_tables(cls.crawler.conn, tables=testtables)
         delete_database(cls.crawler.conn, schema='testleadmachine')
         cls.crawler.conn.close()
 
@@ -413,11 +415,11 @@ class TestMlsScraperMfUptown(unittest.TestCase):
         cls.soup = cls.crawler.single_line_view()
         conn = create_connection('config.cfg')
         create_database(conn, schema='testleadmachine')
-        create_tables(cls.crawler.conn)
+        create_tables(cls.crawler.conn, tables=testtables, columns=testcolumns)
 
     @classmethod
     def tearDownClass(cls):
-        drop_tables(cls.crawler.conn)
+        drop_tables(cls.crawler.conn, tables=testtables)
         delete_database(cls.crawler.conn, schema='testleadmachine')
         cls.crawler.conn.close()
 
@@ -474,11 +476,11 @@ class TestMlsScraperSfUptown(unittest.TestCase):
         cls.soup = cls.crawler.single_line_view()
         conn = create_connection('config.cfg')
         create_database(conn, schema='testleadmachine')
-        create_tables(cls.crawler.conn)
+        create_tables(cls.crawler.conn, tables=testtables, columns=testcolumns)
 
     @classmethod
     def tearDownClass(cls):
-        drop_tables(cls.crawler.conn)
+        drop_tables(cls.crawler.conn, tables=testtables)
         delete_database(cls.crawler.conn, schema='testleadmachine')
         cls.crawler.conn.close()
 
