@@ -121,7 +121,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
     def __init__(self,
         source,
         html_file=None,
-        driver_path="geckodriver.exe",
+        driver_path="C:/Users/John Maxi",
         driver_options=None
     ):
         self.source = source
@@ -178,7 +178,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
         The javascript function is hardcoded into the function.
 
         """
-        browser = webdriver.Firefox(options=self.options, executable_path=self.driver_path)
+        browser = webdriver.Firefox(options=self.options, executable_path=self.driver_path, service_log_path=None)
         browser.get(self.source)
         # tag_xpath = self.xpath_soup(tag)
         # browser.find_element_by_xpath(tag_xpath).click()

@@ -5,10 +5,7 @@ import os
 import configparser
 
 config = configparser.ConfigParser()
-config.read('config.cfg')
-
-print(config.sections())
-print(os.getcwd())
+config.read('C:/Users/John Maxi/lead-machine/config.cfg')
 
 MLS_SEARCHES = config['SOURCES']['MLS_SEARCHES']
 SF_FQ = config['SOURCES']['SF_FQ']
