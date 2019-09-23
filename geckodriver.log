@@ -5790,7 +5790,8 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
-1569111785050	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.1MyAKWbDzNRT"
+Exiting due to channel error.
+	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.1MyAKWbDzNRT"
 *** You are running in headless mode.
 1569111785618	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
 1569111785618	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
@@ -6385,7 +6386,8 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
-1569112218731	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.A6rSZDYydiup"
+Exiting due to channel error.
+	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.A6rSZDYydiup"
 *** You are running in headless mode.
 1569112219375	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
 1569112219390	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
@@ -8351,7 +8353,10 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
-1569117294365	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.hprZbsbf06mJ"
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+refox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.hprZbsbf06mJ"
 *** You are running in headless mode.
 1569117294860	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
 1569117294860	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
@@ -9451,7 +9456,8 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
-1569117969223	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.jMVdVEmXCicq"
+Exiting due to channel error.
+	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.jMVdVEmXCicq"
 *** You are running in headless mode.
 1569117969687	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
 1569117969688	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
@@ -10629,7 +10635,8 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
 JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "drawing_impl".
-1569121269218	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.1rUO5kRQYZ4T"
+Exiting due to channel error.
+	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.1rUO5kRQYZ4T"
 *** You are running in headless mode.
 1569121269817	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
 1569121269818	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
