@@ -13,7 +13,7 @@ columns = {
     SCRAPE_DATE timestamp,
     APPEARED_DATE timestamp,
     CHANGE_TYPE varchar,
-    MSL_NUM int,
+    MLS_NUM int,
     ADDRESS varchar,
     CURRENT_PRICE int,
     BEDS int,
@@ -27,7 +27,7 @@ columns = {
 }
 
 leads_insert = ("""
-INSERT INTO LEADS(SCRAPE_DATE, APPEARED_DATE, CHANGE_TYPE, MSL_NUM, ADDRESS, CURRENT_PRICE, BEDS, FULL_BATHS, HALF_BATHS, AGE_DESC, YR_BLT, SQ_FEET_LV)
+INSERT INTO LEADS(SCRAPE_DATE, APPEARED_DATE, CHANGE_TYPE, MLS_NUM, ADDRESS, CURRENT_PRICE, BEDS, FULL_BATHS, HALF_BATHS, AGE_DESC, YR_BLT, SQ_FEET_LV)
             VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 ON CONFLICT DO NOTHING
 """)
