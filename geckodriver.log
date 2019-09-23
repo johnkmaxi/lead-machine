@@ -13345,4 +13345,41 @@ JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicso
 
 [[Parent 62376, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1568728986/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
 [Child 38452, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1568728986/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
-[
+[1569203912897	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\JOHNMA~1\\AppData\\Local\\Temp\\rust_mozprofile.kAtMwbUeSd7x"
+*** You are running in headless mode.
+1569203913341	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1569203913341	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1569203913341	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1569203913341	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1569203914926	Marionette	INFO	Listening on port 59641
+1569203914975	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+JavaScript error: https://maps.googleapis.com/maps/api/js?client=gme-corelogicsolutions&channel=Matrix-NOM&libraries=drawing,places,geometry&language=en-US, line 97: Error: Could not load "overlay".
+1569203939037	Marionette	INFO	Stopped listening on port 59641
+[Parent 60272, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1568728986/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 54076, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1568728986/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Chil[Parent 60272, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1568728986/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 70396, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1568728986/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[[Parent 60272, Gecko_IOThread] WARNING: pipe error: 109: file z:/task_1568728986/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child 63312, Chrome_ChildThread] WARNING: pipe error: 109: file z:/task_1568728986/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 341
+[Child
