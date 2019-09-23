@@ -79,12 +79,16 @@ def drop_tables(conn, table=None): #, drop_table_queries
         conn.commit()
 
 
-def create_tables(conn, table=None, columns=None): #, create_table_queries, columns
+def create_tables(conn, test=False): #, create_table_queries, columns
     create_query = """CREATE TABLE IF NOT EXISTS {} {};"""
-    for table in tables:
-        #print(create_query.format(table, columns[table]))
-        conn.cursor().execute(create_query.format(table, columns[table]))
+    if test:
+        conn.cursor().execute(create_query.format(testtable, testcolumns[testtable]))
         conn.commit()
+    else:
+        for table in tables:
+            #print(create_query.format(table, columns[table]))
+            conn.cursor().execute(create_query.format(table, columns[table]))
+            conn.commit()
 
 def main():
     conn = create_connection('config.cfg')

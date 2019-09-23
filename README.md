@@ -20,3 +20,12 @@ Identified sources include:
 ## DB
 
 ## Analyzer
+
+## Usage
+1. Clone conda lema env
+2. Put lead-machine in Users directory
+3. Run src/tests.py
+4. Run src/create_tables.py
+5. Add move geckodriver to file location of your choice. Add it to PATH
+6. Run src/main.py
+7. Schedule src/main.py to run on a schedule using Task Scheduler (Windows)
