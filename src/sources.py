@@ -1,13 +1,14 @@
 """Real estate lead data sources
 
 """
-
+import os
 import configparser
 
 config = configparser.ConfigParser()
 config.read('config.cfg')
 
-config.keys()
+print(config.sections())
+print(os.getcwd())
 
 MLS_SEARCHES = config['SOURCES']['MLS_SEARCHES']
 SF_FQ = config['SOURCES']['SF_FQ']
