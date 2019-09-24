@@ -71,24 +71,29 @@ def delete_database(conn, schema=None):
     cur.close()
     conn.commit()
 
-def drop_tables(conn, table=None): #, drop_table_queries
+def drop_table(conn, table):
+    drop_query = """DROP TABLE IF EXISTS {};"""
+    conn.cursor().execute(drop_query.format(table))
+    conn.commit()
+
+def drop_tables(conn): #, drop_table_queries
     drop_query = """DROP TABLE IF EXISTS {};"""
     for table in tables:
         # print(drop_query.format(table))
         conn.cursor().execute(drop_query.format(table))
         conn.commit()
 
-
-def create_tables(conn, test=False): #, create_table_queries, columns
+def create_table(conn, table, columns):
     create_query = """CREATE TABLE IF NOT EXISTS {} {};"""
-    if test:
-        conn.cursor().execute(create_query.format(testtable, testcolumns[testtable]))
+    conn.cursor().execute(create_query.format(table, columns[table]))
+    conn.commit()
+
+def create_tables(conn): #, create_table_queries, columns
+    create_query = """CREATE TABLE IF NOT EXISTS {} {};"""
+    for table in tables:
+        #print(create_query.format(table, columns[table]))
+        conn.cursor().execute(create_query.format(table, columns[table]))
         conn.commit()
-    else:
-        for table in tables:
-            #print(create_query.format(table, columns[table]))
-            conn.cursor().execute(create_query.format(table, columns[table]))
-            conn.commit()
 
 def main():
     conn = create_connection('config.cfg')

@@ -292,17 +292,17 @@ class MlsCrawler(BaseCrawler, BaseDb):
         else:
             return None
 
-    def scrape_table_header(self, soup):
-        """Get the table headers of the single line view
-
-        """
-        columns = []
-        for tdtag in soup.findAll('td'):
-            try:
-                columns.append(tdtag['data-mlheader'][3:])
-            except:
-                pass
-        return [x for x in columns if len(x) > 0][1:]
+    # def scrape_table_header(self, soup):
+    #     """Get the table headers of the single line view
+    #
+    #     """
+    #     columns = []
+    #     for tdtag in soup.findAll('td'):
+    #         try:
+    #             columns.append(tdtag['data-mlheader'][3:])
+    #         except:
+    #             pass
+    #     return [x for x in columns if len(x) > 0][1:]
 
     def save_html(self, soup, fname='html.html'):
         """Save html from bs4 object
