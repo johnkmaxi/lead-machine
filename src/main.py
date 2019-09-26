@@ -27,6 +27,22 @@ def main():
         soup = crawler.single_line_view()
         data = crawler.scrape_table_columns(soup)
         for idx in range(len(data['sent'])):
+            listing_info = crawler.get_listing_info(idx,
+                                     properties=[
+                                        'Property Type',
+                                        'Dwelling Type',
+                                        'Zip',
+                                        'Lp/SqFt',
+                                        'Neighborhood',
+                                        'DOM',
+                                        'City',
+                                        'Zip',
+                                        'Bound Streets',
+                                        'Lot Size',
+                                        'Lot Description',
+                                        'Acres#',
+                                        'Age'
+                                    ])
             cur = crawler.to_db(
                         leads_insert,
                         params=(crawler.date,
@@ -40,9 +56,23 @@ def main():
                                 data['halfbath'][idx],
                                 data['agedesc'][idx],
                                 data['built'][idx],
-                                data['sqft'][idx])
+                                data['sqft'][idx],
+                                listing_info['Property Type'],
+                                listing_info['Dwelling Type'],
+                                listing_info['City'],
+                                int(listing_info['Zip']),
+                                crawler.format_money(listing_info['LP/SqFt']),
+                                listing_info['Neighborhood'],
+                                int(listing_info['DOM']),
+                                listing_info['Bounding Streets'],
+                                listing_info['Lot Size'],
+                                listing_info['Lot Description'],
+                                listing_info['Acres#'],
+                                listing_info['Age'])
                     )
             crawler.conn.commit()
+        crawler.conn.close()
+        # close http connection
 
 if __name__ == '__main__':
     main()

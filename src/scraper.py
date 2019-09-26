@@ -5,6 +5,7 @@
 import configparser
 from datetime import datetime
 import itertools
+import random
 import time
 from urllib.request import urlopen
 
@@ -187,14 +188,14 @@ class MlsCrawler(BaseCrawler, BaseDb):
         # javascript for showing Single Line view
         # TODO: find the javascript function by locating the Client Single Line within the fxn
         browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
-        time.sleep(7)
+        time.sleep(random.randint(5,8))
         try:
             browser.execute_script("PortalResultsJs.getNextDisplaySet();")
-            time.sleep(7)
+            time.sleep(random.randint(5,8))
         except:
             pass
         soup = BeautifulSoup(browser.page_source, features='lxml')
-        time.sleep(7)
+        time.sleep(random.randint(5,8))
         browser.close()
         return soup
 
@@ -253,6 +254,66 @@ class MlsCrawler(BaseCrawler, BaseDb):
             'built': year_built
         }
         return data
+
+    def get_listing_info(self, row_idx, properties=None):
+        """Parse information from individual listing page
+
+        Parameters
+        ----------
+        row_idx : int
+            Indicates a row in an HTML table. A link from that row is followed
+        properties : list of str
+            If not None, only keys that are in properties are included in info.
+            Otherwise, return all items from info.
+
+        Returns
+        -------
+        info : dict
+        """
+        browser = webdriver.Firefox(options=self.options, executable_path=self.driver_path, service_log_path=None)
+        browser.get(self.source)
+        browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
+        time.sleep(random.randint(5,8))
+        try:
+            browser.execute_script("PortalResultsJs.getNextDisplaySet();")
+            time.sleep(random.randint(5,8))
+        except:
+            pass
+        browser.execute_script(f"__doPostBack('_ctl0$m_DisplayCore','Redisplay|237,,{row_idx}')")
+        time.sleep(random.randint(5,8))
+        soup = BeautifulSoup(browser.page_source, features='lxml')
+        info = self.parse_listing_info(soup, properties=properties)
+        time.sleep(random.randint(2,5))
+        browser.close()
+        return info
+
+
+    def parse_listing_info(self, soup, properties=None):
+        """
+        Scrapes the information contained in the tables in the listing.
+
+        If values passed in properties are not in info, then the value None is
+        returned for that key.
+
+        Parameters
+        ----------
+        soup : bs4 object
+        properties : list of str
+            A subset of keys from info to be returned
+
+        Returns
+        -------
+        info : dict
+            Property Type, Dwelling Type, Zip, Lp/SqFt, Neighborhood, DOM
+            City, Zip, Bound Streets, Lot Size, Lot Description, Acres#, Age
+        """
+        values = [x.text for x in soup.select('.col-xs-7')]
+        keys = [x.text for x in soup.select('.col-xs-5')]
+        keys = keys[-len(values):]
+        info = dict(zip(keys,values))
+        if properties is None: # return all info items
+            return info
+        return {k: info.get(k, None) for k in properties}
 
     @staticmethod
     def format_date(date_str):
