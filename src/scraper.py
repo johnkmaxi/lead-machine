@@ -7,10 +7,12 @@ from datetime import datetime
 import itertools
 import random
 import time
-from urllib.request import urlopen
+import urllib.request
 
 from bs4 import BeautifulSoup
+from lxml.html import fromstring
 import psycopg2
+import requests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
@@ -130,17 +132,33 @@ class MlsCrawler(BaseCrawler, BaseDb):
         self.date = datetime.now().date()
         self.options = Options()
         self.options.headless = True
+        max_retries = 100
         if html_file:
             with open(html_file, mode='r', encoding='utf8') as page:
                 self.source_html = page.read()
+            self.source_soup = BeautifulSoup(self.source_html, features='lxml')
         else:
             # TODO: add exception handling for HTTPResponse errors
-            self.source_html = urlopen(self.source)
-        self.source_soup = BeautifulSoup(self.source_html, features='lxml')
+            for i in range(max_retries):
+                try:
+                    self.source_html = self.get_source()
+                except:
+                    print(i)
+                if i >= max_retries:
+                    raise ValueError('max retries reached')
+
         # self.searches = self.collect_search_list()
         super(MlsCrawler, self).__init__()
         self.conn = self.make_connection(None)
 
+    def get_source(self):
+        """Make request to source URL and return page HTML"""
+        proxy = self.get_proxies()
+        user_agent = self.get_user_agent()
+        req = urllib.request.Request(self.source, headers={'User-Agent':user_agent})
+        req.set_proxy(proxy, 'https')
+        source_html =  urllib.request.urlopen(req)
+        return source_html
 
     def collect_search_list(self):
         """Returns a list of links containing search results
@@ -352,6 +370,41 @@ class MlsCrawler(BaseCrawler, BaseDb):
                 return int(result_str.rstrip().lstrip())
         else:
             return None
+
+    @staticmethod
+    def get_proxies():
+        """Get a random proxy for spoofing"""
+        url = 'https://free-proxy-list.net/'
+        response = requests.get(url)
+        parser = fromstring(response.text)
+        proxies = set()
+        for i in parser.xpath('//tbody/tr'):
+            if i.xpath('.//td[7][contains(text(),"yes")]'):
+                #Grabbing IP and corresponding PORT
+                proxy = ":".join([i.xpath('.//td[1]/text()')[0], i.xpath('.//td[2]/text()')[0]])
+                proxies.add(proxy)
+        return random.choice(list(proxies))
+
+    @staticmethod
+    def get_user_agent():
+        """Get a random user agent from a specified list"""
+        user_agent_list = [
+            #Firefox
+            'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+            'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+            'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)',
+            'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko',
+            'Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; rv:11.0) like Gecko',
+            'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+            'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)',
+            'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko',
+            'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
+            'Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko',
+            'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)',
+            'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)',
+            'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)'
+        ]
+        return random.choice(user_agent_list)
 
     # def scrape_table_header(self, soup):
     #     """Get the table headers of the single line view
