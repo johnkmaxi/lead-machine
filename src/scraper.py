@@ -132,22 +132,10 @@ class MlsCrawler(BaseCrawler, BaseDb):
         self.date = datetime.now().date()
         self.options = Options()
         self.options.headless = True
-        max_retries = 100
         if html_file:
             with open(html_file, mode='r', encoding='utf8') as page:
                 self.source_html = page.read()
             self.source_soup = BeautifulSoup(self.source_html, features='lxml')
-        else:
-            # TODO: add exception handling for HTTPResponse errors
-            for i in range(max_retries):
-                try:
-                    self.source_html = self.get_source()
-                except:
-                    print(i)
-                if i >= max_retries:
-                    raise ValueError('max retries reached')
-
-        # self.searches = self.collect_search_list()
         super(MlsCrawler, self).__init__()
         self.conn = self.make_connection(None)
 
@@ -160,15 +148,16 @@ class MlsCrawler(BaseCrawler, BaseDb):
         source_html =  urllib.request.urlopen(req)
         return source_html
 
-    def collect_search_list(self):
-        """Returns a list of links containing search results
-
-        Returns
-        -------
-        searches : list
-
-        """
-        links = self.source_soup.findAll('a', id=lambda x: x and 'ucItemView_m_lnkSubject' in x)
+    # def collect_search_list(self):
+    #     """Returns a list of links containing search results
+    #
+    #     Returns
+    #     -------
+    #     searches : list
+    #
+    #     deprecated using individual search links as the sources
+    #     """
+    #     links = self.source_soup.findAll('a', id=lambda x: x and 'ucItemView_m_lnkSubject' in x)
         return links
 
     def single_line_view(self):
@@ -206,14 +195,14 @@ class MlsCrawler(BaseCrawler, BaseDb):
         # javascript for showing Single Line view
         # TODO: find the javascript function by locating the Client Single Line within the fxn
         browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
-        time.sleep(random.randint(5,8))
+        time.sleep(random.randint(11,16))
         try:
             browser.execute_script("PortalResultsJs.getNextDisplaySet();")
-            time.sleep(random.randint(5,8))
+            time.sleep(random.randint(11,16))
         except:
             pass
         soup = BeautifulSoup(browser.page_source, features='lxml')
-        time.sleep(random.randint(5,8))
+        time.sleep(random.randint(11,16))
         browser.close()
         return soup
 
@@ -291,14 +280,14 @@ class MlsCrawler(BaseCrawler, BaseDb):
         browser = webdriver.Firefox(options=self.options, executable_path=self.driver_path, service_log_path=None)
         browser.get(self.source)
         browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
-        time.sleep(random.randint(5,8))
+        time.sleep(random.randint(11,16))
         try:
             browser.execute_script("PortalResultsJs.getNextDisplaySet();")
-            time.sleep(random.randint(5,8))
+            time.sleep(random.randint(11,16))
         except:
             pass
         browser.execute_script(f"__doPostBack('_ctl0$m_DisplayCore','Redisplay|237,,{row_idx}')")
-        time.sleep(random.randint(5,8))
+        time.sleep(random.randint(11,16))
         soup = BeautifulSoup(browser.page_source, features='lxml')
         info = self.parse_listing_info(soup, properties=properties)
         time.sleep(random.randint(2,5))
