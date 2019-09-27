@@ -1,6 +1,7 @@
 """Scraping script"""
 
 import datetime
+import random
 
 from scraper import MlsCrawler
 from sources import MF_7TH_9TH_MARIGNY_BYWATER
@@ -26,7 +27,9 @@ def main():
         crawler = MlsCrawler(source)
         soup = crawler.single_line_view()
         data = crawler.scrape_table_columns(soup)
-        for idx in range(len(data['sent'])):
+        data_idxs = [x for x in range(len(data['sent']))]
+        random.shuffle(data_idxs)
+        for idx in data_idxs:
             listing_info = crawler.get_listing_info(idx,
                                      properties=[
                                         'Property Type',
