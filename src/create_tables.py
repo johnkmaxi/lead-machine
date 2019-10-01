@@ -97,10 +97,10 @@ def create_tables(conn): #, create_table_queries, columns
 
 def main():
     conn = create_connection('config.cfg')
-    drop_tables(conn, table=tables)
+    drop_tables(conn)
     delete_database(conn)
     create_database(conn, schema='leadmachine')
-    create_tables(conn, table=tables, columns=columns)
+    create_tables(conn)
 
 
 if __name__ == "__main__":

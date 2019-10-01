@@ -330,7 +330,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
     @staticmethod
     def format_money(money_str):
         """Removes $ and , from money_str"""
-        return int(money_str.replace('$','').replace(',',''))
+        return int(float(money_str.replace('$','').replace(',','')))
 
     @staticmethod
     def format_sqft(sqft_str):
