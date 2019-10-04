@@ -27,10 +27,12 @@ def main():
         crawler = MlsCrawler(source)
         soup = crawler.single_line_view()
         data = crawler.scrape_table_columns(soup)
-        data_idxs = [x for x in range(len(data['sent']))]
-        random.shuffle(data_idxs)
-        for idx in data_idxs:
-            listing_info = crawler.get_listing_info(idx,
+        mls_nums = data['mlsnum']
+        random.shuffle(mls_nums)
+        # data_idxs = [x for x in range(len(data['sent']))]
+        # random.shuffle(data_idxs)
+        for num in mls_nums:
+            listing_info = crawler.get_listing_info(num,
                                      properties=[
                                         'Property Type',
                                         'Dwelling Type',

@@ -131,7 +131,7 @@ class MlsCrawler(BaseCrawler, BaseDb):
         self.driver_path = driver_path
         self.date = datetime.now().date()
         self.options = Options()
-        self.options.headless = True
+        #self.options.headless = True
         if html_file:
             with open(html_file, mode='r', encoding='utf8') as page:
                 self.source_html = page.read()
@@ -262,13 +262,13 @@ class MlsCrawler(BaseCrawler, BaseDb):
         }
         return data
 
-    def get_listing_info(self, row_idx, properties=None):
+    def get_listing_info(self, link_txt, properties=None):
         """Parse information from individual listing page
 
         Parameters
         ----------
-        row_idx : int
-            Indicates a row in an HTML table. A link from that row is followed
+        link_txt : str
+            Indicates a row in an HTML table. The value matching `link_txt` is clicked
         properties : list of str
             If not None, only keys that are in properties are included in info.
             Otherwise, return all items from info.
@@ -286,7 +286,11 @@ class MlsCrawler(BaseCrawler, BaseDb):
             time.sleep(random.randint(11,16))
         except:
             pass
-        browser.execute_script(f"__doPostBack('_ctl0$m_DisplayCore','Redisplay|237,,{row_idx}')")
+        # find link using link_txt
+        link = browser.find_element_by_link_text(link_txt)
+        # extract the href from the element and get just the javascript fxn to execute
+        browser.execute_script(link.get_attribute('href')[len('javascript:'):])
+        #link.click(on_element=link)
         time.sleep(random.randint(11,16))
         soup = BeautifulSoup(browser.page_source, features='lxml')
         info = self.parse_listing_info(soup, properties=properties)

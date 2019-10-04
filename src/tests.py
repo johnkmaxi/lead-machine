@@ -243,12 +243,12 @@ class TestMlsScraperFQ(unittest.TestCase):
         self.assertTrue(len(data) > 0)
 
     def test_scrape_listing_info(self):
-        data = self.crawler.get_listing_info(3, properties=['List Price','MLS Number','Zip'])
+        data = self.crawler.get_listing_info('2195474', properties=['List Price','MLS Number','Zip'])
         self.assertEqual(3, len(data))
-
+    @unittest.skip('skip')
     def test_write_to_db(self):
         data = self.crawler.scrape_table_columns(self.soup)
-        listing_data = self.crawler.get_listing_info(3, properties=['Property Type', 'Dwelling Type', 'Zip', 'Lp/SqFt', 'Neighborhood', 'DOM',
+        listing_data = self.crawler.get_listing_info('2195474', properties=['Property Type', 'Dwelling Type', 'Zip', 'Lp/SqFt', 'Neighborhood', 'DOM',
         'City', 'Zip', 'Bound Streets', 'Lot Size', 'Lot Description', 'Acres#', 'Age'])
         cur = self.crawler.to_db(
             INSERT,
@@ -280,7 +280,7 @@ class TestMlsScraperFQ(unittest.TestCase):
         cur.execute('select * from testleads')
         results = cur.fetchall()
         self.assertEqual(1, len(results))
-
+@unittest.skip('testing only fq')
 class TestMlsScraperSfMb(unittest.TestCase):
     """MLS scraping tests
 
@@ -355,7 +355,7 @@ class TestMlsScraperSfMb(unittest.TestCase):
         cur.execute('select * from testleads')
         results = cur.fetchall()
         self.assertEqual(1, len(results))
-
+@unittest.skip('testing only fq')
 class TestMlsScraperMfMb(unittest.TestCase):
     """MLS scraping tests
 
@@ -430,7 +430,7 @@ class TestMlsScraperMfMb(unittest.TestCase):
         cur.execute('select * from testleads')
         results = cur.fetchall()
         self.assertEqual(1, len(results))
-
+@unittest.skip('testing only fq')
 class TestMlsScraperSfLakeview(unittest.TestCase):
     """MLS scraping tests
 
@@ -505,7 +505,7 @@ class TestMlsScraperSfLakeview(unittest.TestCase):
         cur.execute('select * from testleads')
         results = cur.fetchall()
         self.assertEqual(1, len(results))
-
+@unittest.skip('testing only fq')
 class TestMlsScraperMfUptown(unittest.TestCase):
     """MLS scraping tests
 
@@ -580,7 +580,7 @@ class TestMlsScraperMfUptown(unittest.TestCase):
         cur.execute('select * from testleads')
         results = cur.fetchall()
         self.assertEqual(1, len(results))
-
+@unittest.skip('testing only fq')
 class TestMlsScraperSfUptown(unittest.TestCase):
     """MLS scraping tests
 
