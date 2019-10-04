@@ -66,7 +66,7 @@ def main():
                                 int(listing_info['Zip']),
                                 crawler.format_money(listing_info['LP/SqFt']),
                                 listing_info['Neighborhood'],
-                                int(listing_info['DOM']),
+                                crawler.format_money(listing_info['DOM']),
                                 listing_info['Bounding Streets'],
                                 listing_info['Lot Size'],
                                 listing_info['Lot Description'],
