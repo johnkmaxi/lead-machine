@@ -32,7 +32,8 @@ def main():
         # data_idxs = [x for x in range(len(data['sent']))]
         # random.shuffle(data_idxs)
         for num in mls_nums:
-            listing_info = crawler.get_listing_info(num,
+            num_as_str = str(num)
+            listing_info = crawler.get_listing_info(num_as_str,
                                      properties=[
                                         'Property Type',
                                         'Dwelling Type',
@@ -48,6 +49,8 @@ def main():
                                         'Acres#',
                                         'Age'
                                     ])
+            # get index of data['mlsnum'] == num
+            idx = data['mlsnum'].index(num)
             cur = crawler.to_db(
                         leads_insert,
                         params=(crawler.date,
@@ -65,7 +68,7 @@ def main():
                                 listing_info['Property Type'],
                                 listing_info['Dwelling Type'],
                                 listing_info['City'],
-                                int(listing_info['Zip']),
+                                crawler.make_int(listing_info['Zip']),
                                 crawler.format_money(listing_info['LP/SqFt']),
                                 listing_info['Neighborhood'],
                                 crawler.format_money(listing_info['DOM']),

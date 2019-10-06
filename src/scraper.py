@@ -342,6 +342,14 @@ class MlsCrawler(BaseCrawler, BaseDb):
         return int(sqft_str.replace(',',''))
 
     @staticmethod
+    def make_int(string):
+        """Try to make an int, otherwise make None"""
+        try:
+            return int(string)
+        except:
+            return None
+
+    @staticmethod
     def format_result_list(result_list):
         """Return an int the passed ['str']
 
