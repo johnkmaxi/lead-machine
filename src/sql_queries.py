@@ -87,6 +87,7 @@ leads_list = """\
 SELECT
         MLS_NUM
         ,ADDRESS
+        ,CURRENT_PRICE
         ,DOM
         ,SCRAPE_DATE
         ,CHANGE_TYPE
