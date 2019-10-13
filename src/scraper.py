@@ -197,6 +197,8 @@ class MlsCrawler(BaseCrawler, BaseDb):
         browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
         time.sleep(random.randint(11,16))
         try:
+            _ = browser.find_element_by_link_text("See More Results")
+            print(_)
             browser.execute_script("PortalResultsJs.getNextDisplaySet();")
             time.sleep(random.randint(11,16))
         except:
@@ -282,6 +284,8 @@ class MlsCrawler(BaseCrawler, BaseDb):
         browser.execute_script("__doPostBack('_ctl0$m_rptViewList$ctl00$ctl00','')")
         time.sleep(random.randint(11,16))
         try:
+            _ = browser.find_element_by_link_text("See More Results")
+            print(_)
             browser.execute_script("PortalResultsJs.getNextDisplaySet();")
             time.sleep(random.randint(11,16))
         except:

@@ -22,16 +22,16 @@ SOURCES = [
 ]
 
 def main():
-
     for source in SOURCES:
         crawler = MlsCrawler(source)
         soup = crawler.single_line_view()
         data = crawler.scrape_table_columns(soup)
-        mls_nums = data['mlsnum']
+        mls_nums = [x for x in data['mlsnum']]
         random.shuffle(mls_nums)
         # data_idxs = [x for x in range(len(data['sent']))]
         # random.shuffle(data_idxs)
         for num in mls_nums:
+            print(num)
             num_as_str = str(num)
             listing_info = crawler.get_listing_info(num_as_str,
                                      properties=[
@@ -51,6 +51,7 @@ def main():
                                     ])
             # get index of data['mlsnum'] == num
             idx = data['mlsnum'].index(num)
+            print(data['mlsnum'][idx])
             cur = crawler.to_db(
                         leads_insert,
                         params=(crawler.date,
