@@ -333,17 +333,26 @@ class MlsCrawler(BaseCrawler, BaseDb):
     @staticmethod
     def format_date(date_str):
         """str to datetime object"""
-        return datetime.strptime(date_str, '%m/%d/%Y')
+        if date_str is not None:
+            return datetime.strptime(date_str, '%m/%d/%Y')
+        else:
+            return None
 
     @staticmethod
     def format_money(money_str):
         """Removes $ and , from money_str"""
-        return int(float(money_str.replace('$','').replace(',','')))
+        if money_str is not None:
+            return int(money_str.replace('$','').replace(',',''))
+        else:
+            return None
 
     @staticmethod
     def format_sqft(sqft_str):
         """Removes , from sqft_str"""
-        return int(sqft_str.replace(',',''))
+        if sqft_str is not None:
+            return int(sqft_str.replace(',',''))
+        else:
+            return None
 
     @staticmethod
     def make_int(string):
